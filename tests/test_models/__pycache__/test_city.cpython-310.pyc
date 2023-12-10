@@ -1,0 +1,128 @@
+o
+    >]êbY  ã                   @   sŽ   d Z ddlZddlZddlZddlmZ ddlmZ ddl mZ G dd „ d ej	ƒZ
+G dd	„ d	ej	ƒZ
+G d
+d
+„ d
+ej	ƒZe
+dkrEe ¡  dS dS )
+z{Defines unittests for models/city.py.
+
+Unittest classes:
+    TestCity_instantiation
+    TestCity_save
+    TestCity_to_dict
+é    N)Údatetime)Úsleep)ÚCityc                   @   s€   e Zd ZdZdd„ Zdd„ Zdd „ Zdd	„ Z d
+d
+„ Zdd
+„ Z	dd„ Z
+dd„ Z
+dd„ Zdd„ Z
+dd„ Zdd„ Zdd„ Zdd„ ZdS )ÚTestCity_instantiationz6Unittests for testing instantiation of the City class.c                 C   s   |   tttƒ ƒ¡ d S ©N)Ú
+assertEqualr   Útype©Úself© r
+   úI/home/lexxyla/Desktop/Brennan/AirBnB_clone/tests/test_models/test_city.pyÚtest_no_args_instantiates   s   z0TestCity_instantiation.test_no_args_instantiatesc                 C   s   |   tƒ tj ¡  ¡ ¡ d S r   )ÚassertInr   ÚmodelsÚ storageÚallÚvaluesr	   r
+   r
+   r   Ú#test_new_instance_stored_in_objects   s   z:TestCity_instantiation.test_new_instance_stored_in_objectsc                 C   ó   |   tttƒ jƒ¡ d S r   )r    Ústrr   r   Úidr	   r
+   r
+   r   Útest_id_is_public_str   ó   z,TestCity_instantiation.test_id_is_public_strc                 C   r   r   )r    r   r   r   Ú
+created_atr	   r
+   r
+   r   Ú"test_created_at_is_public_datetime   r   z9TestCity_instantiation.test_created_at_is_public_datetimec                 C   r   r   )r    r   r   r   Ú
+updated_atr	   r
+   r
+   r   Ú"test_updated_at_is_public_datetime    r   z9TestCity_instantiation.test_updated_at_is_public_datetimec                 C   ó:   t ƒ }|  ttt jƒ¡ |  dt|ƒ¡ |   d|j¡ d S )NÚstate_id)	r   r    r   r   r   r   ÚdirÚ
+assertNotInÚ__dict__©r
+   Úcyr
+   r
+   r   Ú'test_state_id_is_public_class_attribute#   ó   z>TestCity_instantiation.test_state_id_is_public_class_attributec                 C   r   )NÚname)	r   r    r   r   r&   r   r   r    r!   r"   r
+   r
+   r   Ú#test_name_is_public_class_attribute)   r%   z:TestCity_instantiation.test_name_is_public_class_attributec                 C   s    t ƒ }t ƒ }|  |j|j¡ d S r   )r   ÚassertNotEqualr   ©r
+   Zcy1Zcy2r
+   r
+   r   Útest_two_cities_unique_ids/   s   z1TestCity_instantiation.test_two_cities_unique_idsc                 C   ó(   t ƒ }tdƒ t ƒ }|  |j|j¡ d S ©Ngš™™™™™©?)r   r   Ú
+assertLessr   r)   r
+   r
+   r   Ú$test_two_cities_different_created_at4   ó   z;TestCity_instantiation.test_two_cities_different_created_atc                 C   r+   r,   )r   r   r-   r   r)   r
+   r
+   r   Ú$test_two_cities_different_updated_at:   r/   z;TestCity_instantiation.test_two_cities_different_updated_atc                 C   sl   t  ¡ }t|ƒ}tƒ }d|_| |_|_|  ¡ }|  d|¡ |  d|¡ |  d| |¡ |  d| |¡ d S )NÚ123456z[City] (123456)z'id': '123456'z'created_at': z'updated_at': )	r   ÚtodayÚreprr   r   r   r   Ú __str__r   )r
+   ÚdtÚ dt_reprr#   Zcystrr
+   r
+   r   Útest_str_representation@   s   z.TestCity_instantiation.test_str_representationc                 C   s   t d ƒ}|  d |j ¡ ¡ d S r   )r   r    r!   r   r"   r
+   r
+   r   Útest_args_unusedL   s   z'TestCity_instantiation.test_args_unusedc                 C   sL   t  ¡ }| ¡ }td||d}|  |jd¡ |  |j|¡ |  |j |¡ d S )NÚ345©r   r   r   )r   r2   Ú	isoformatr   r    r   r   r   )r
+   r5   Údt_isor#   r
+   r
+   r   Útest_instantiation_with_kwargsP   s   z5TestCity_instantiation.test_instantiation_with_kwargsc                 C   s>   |   t¡ td d d d W d   ƒ d S 1 sw   Y  d S )Nr:   )ÚassertRaisesÚ	TypeErrorr   r	   r
+   r
+   r   Ú#test_instantiation_with_None_kwargsX   s   "ÿz:TestCity_instantiation.test_instantiation_with_None_kwargsN)Ú__name__Ú
+__module__Ú__qualname__Ú __doc__r
+   r   r   r   r   r$   r'   r*   r.   r0   r7   r8   r=   r@   r
+   r
+   r
+   r   r      s     r   c                   @   sD   e Zd ZdZedd„ ƒZdd„ Zdd „ Z dd	„ Zd
+d
+„ Z	dd
+„ Z
+dS )Ú
+TestCity_savez4Unittests for testing save method of the City class.c                 C   s(   z	t  dd¡ W d S  ty   Y d S w ©Nú	file.jsonÚtmp)ÚosÚrenameÚ IOErrorr	   r
+   r
+   r   ÚsetUp`   s
+   ÿzTestCity_save.setUpc                 C   sJ   z t  d¡ W n	 ty   Y nw z	t  dd¡ W d S  ty$   Y d S w rF   )rI   ÚremoverK   rJ   r	   r
+   r
+   r   ÚtearDowng   s   ÿÿzTestCity_save.tearDownc                 C   s.   t ƒ }tdƒ |j}| ¡  |  ||j¡ d S r,   ©r   r   r   Úsaver-   )r
+   r#   Úfirst_updated_atr
+   r
+   r   Ú
+test_one_saveq   s
+   zTestCity_save.test_one_savec                 C   sP   t ƒ }tdƒ |j}| ¡  |j}|  ||¡ tdƒ | ¡  |  ||j¡ d S r,   rO   )r
+   r#   rQ   Úsecond_updated_atr
+   r
+   r   Útest_two_savesx   s   zTestCity_save.test_two_savesc                 C   ó@   t ƒ }|  t¡ | d ¡ W d   ƒ d S 1 sw   Y  d S r   )r   r>   r?   rP   r"   r
+   r
+   r   Útest_save_with_argƒ   ó   "ÿz TestCity_save.test_save_with_argc                 C   sX   t ƒ }| ¡  d|j }tddƒ}|  || ¡ ¡ W d   ƒ d S 1 s%w   Y  d S )NzCity.rG   Úr)r   rP   r   Úopenr   Úread)r
+   r#   ZcyidÚfr
+   r
+   r   Útest_save_updates_fileˆ   s   
+"ÿz$TestCity_save.test_save_updates_fileN)
+rA   rB   rC   rD   Ú
+classmethodrL   rN   rR   rT   rV   r\   r
+   r
+   r
+   r   rE   ]   s    
+
+ 
+rE   c                   @   sH   e Zd ZdZdd„ Zdd„ Zdd „ Zdd	„ Z d
+d
+„ Zdd
+„ Z	dd„ Z
+dS )ÚTestCity_to_dictz7Unittests for testing to_dict method of the City class.c                 C   s   |   tttƒ  ¡ ƒ¡ d S r   )Ú
+assertTrueÚdictr   r   Ú to_dictr	   r
+   r
+   r   Útest_to_dict_type“   s   z"TestCity_to_dict.test_to_dict_typec                 C   sJ   t ƒ }|  d| ¡ ¡ |  d| ¡ ¡ |  d| ¡ ¡ |  d| ¡ ¡ d S )Nr   r   r   Ú	__class__)r   r   ra   r"   r
+   r
+   r   Ú"test_to_dict_contains_correct_keys–   s
+   z3TestCity_to_dict.test_to_dict_contains_correct_keysc                 C   s4   t ƒ }d|_d|_|  d|j¡ |  d| ¡ ¡ d S )NÚ	Holbertonéb   Ú	my_number)r   Ú
+middle_namerg   r    r   ra   r"   r
+   r
+   r   Ú&test_to_dict_contains_added_attributes   s
+   z7TestCity_to_dict.test_to_dict_contains_added_attributesc                 C   sN   t ƒ }| ¡ }|  tt|d ƒ¡ |  tt|d ƒ¡ |  tt|d ƒ¡ d S )Nr   r   r   )r   ra   r    r   r   )r
+   r#   Z cy_dictr
+   r
+   r   Ú)test_to_dict_datetime_attributes_are_strs¤   s
+   z:TestCity_to_dict.test_to_dict_datetime_attributes_are_strsc                 C   sJ   t  ¡ }tƒ }d|_| |_|_dd| ¡ | ¡ dœ}|   | ¡ |¡ d S )Nr1   r   )r   rc   r   r   )	r   r2   r   r   r   r   r;   ÚassertDictEqualra   )r
+   r5   r#   Útdictr
+   r
+   r   Útest_to_dict_output«   s   üz$TestCity_to_dict.test_to_dict_outputc                 C   s   t ƒ }|  | ¡ |j¡ d S r   )r   r(   ra   r!   r"   r
+   r
+   r   Ú!test_contrast_to_dict_dunder_dict¸   s   z2TestCity_to_dict.test_contrast_to_dict_dunder_dictc                 C   rU   r   )r   r>   r?   ra   r"   r
+   r
+   r   Útest_to_dict_with_arg¼   rW   z&TestCity_to_dict.test_to_dict_with_argN)
+rA   rB   rC   rD   rb   rd   ri   rj   rm   rn   ro   r
+   r
+   r
+   r   r^      s       
+r^   Ú__main__)rD   rI   r   Úunittestr   Útimer   Ú
+models.cityr   ÚTestCaser   rE   r^   rA   Úmainr
+   r
+   r
+   r   Ú<module>   s    L32ÿ
