@@ -1,0 +1,521 @@
+o
+    >]êb¥@ ã                   @   s  d Z ddlZddlZddlZddlmZ ddlm Z  ddlm	Z	 ddl
+m
+Z
+ dd lm
+Z
+ G dd	„ d	ejƒZG d
+d
+„ d
+ejƒZG dd
+„ d
+ejƒZG dd„ dejƒZG dd„ dejƒZG dd„ dejƒZG dd„ dejƒZG dd„ dejƒZG dd„ dejƒZedkr‡e ¡  dS dS )a  Defines unittests for console.py.
+
+Unittest classes:
+    TestHBNBCommand_prompting
+    TestHBNBCommand_help
+    TestHBNBCommand_exit
+    TestHBNBCommand_create
+    TestHBNBCommand_show
+    TestHBNBCommand_all
+    TestHBNBCommand_destroy
+    TestHBNBCommand_update
+é    N)Ú storage)Ú
+FileStorage)Ú
+HBNBCommand)ÚStringIO)Úpatchc                   @   ó    e Zd ZdZdd„ Zdd„ ZdS ) ÚTestHBNBCommand_promptingz@Unittests for testing prompting of the HBNB command interpreter.c                 C   s   |   dtj¡ d S )Nz (hbnb) )Ú
+assertEqualr   Úprompt©Úself© r
+   ú@/home/lexxyla/Desktop/Brennan/AirBnB_clone/tests/test_console.pyÚtest_prompt_string   s   z,TestHBNBCommand_prompting.test_prompt_stringc                 C   sZ   t dtƒ d}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ W d   ƒ d S 1 s&w   Y  d S )Nú
+sys.stdout©ÚnewÚ ©r   r   Ú
+assertFalser   Úonecmdr	   ÚgetvalueÚstrip©r   Úoutputr
+   r
+   r   Útest_empty_line   ó   "þz)TestHBNBCommand_prompting.test_empty_lineN)Ú__name__Ú
+__module__Ú__qualname__Ú __doc__r   r   r
+   r
+   r
+   r   r      s    r   c                   @   sX   e Zd ZdZdd„ Zdd„ Zdd „ Zdd	„ Z d
+d
+„ Zdd
+„ Z	dd„ Z
+dd„ Z
+dd„ ZdS )ÚTestHBNBCommand_helpzDUnittests for testing help messages of the HBNB command interpreter.c                 C   ó^   d}t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ d S 1 s(w   Y  d S )Nz!Quit command to exit the program.r   r   z	help quitr   ©r   Úhr   r
+   r
+   r   Útest_help_quit'   ó
+   "þz#TestHBNBCommand_help.test_help_quitc                 C   r"   )NzKUsage: create <class>
+        Create a new class instance and print its id.r   r   z
+help creater   r#   r
+   r
+   r   Útest_help_create-   ó
+   "þz%TestHBNBCommand_help.test_help_createc                 C   r"   )NzEOF signal to exit the program.r   r   zhelp EOFr   r#   r
+   r
+   r   Ú
+test_help_EOF4   r&   z"TestHBNBCommand_help.test_help_EOFc                 C   r"   )Nz{Usage: show <class> <id> or <class>.show(<id>)
+        Display the string representation of a class instance of a given id.r   r   z	help showr   r#   r
+   r
+   r   Útest_help_show:   ó
+   "þz#TestHBNBCommand_help.test_help_showc                 C   r"   )NzcUsage: destroy <class> <id> or <class>.destroy(<id>)
+        Delete a class instance of a given id.r   r   zhelp destroyr   r#   r
+   r
+   r   Útest_help_destroyB   r(   z&TestHBNBCommand_help.test_help_destroyc                 C   r"   )Nz¹Usage: all or all <class> or <class>.all()
+        Display string representations of all instances of a given class.
+        If no class is specified, displays all instantiated objects.r   r   zhelp allr   r#   r
+   r
+   r   Ú
+test_help_allI   s
+   "þz"TestHBNBCommand_help.test_help_allc                 C   r"   )NzbUsage: count <class> or <class>.count()
+        Retrieve the number of instances of a given class.r   r   z
+help countr   r#   r
+   r
+   r   Útest_help_countR   r(   z$TestHBNBCommand_help.test_help_countc                 C   r"   )Na*  Usage: update <class> <id> <attribute_name> <attribute_value> or
+       <class>.update(<id>, <attribute_name>, <attribute_value>) or
+       <class>.update(<id>, <dictionary>)
+        Update a class instance of a given id by adding or updating
+        a given attribute key/value pair or dictionary.r   r   z
+help updater   r#   r
+   r
+   r   Útest_help_updateY   s
+   "þz%TestHBNBCommand_help.test_help_updatec                 C   r"   )NzŒDocumented commands (type help <topic>):
+========================================
+EOF  all  count  create  destroy  help  quit  show  updater   r   Úhelpr   r#   r
+   r
+   r   Ú	test_helpc   r+   zTestHBNBCommand_help.test_helpN)
+r   r   r   r    r%   r'   r)   r*   r,   r-   r.   r/   r1   r
+   r
+   r
+   r   r!   $   s      	 
+r!   c                   @   r    ) ÚTestHBNBCommand_exitz@Unittests for testing exiting from the HBNB command interpreter.c                 C   óF   t dtƒ d}|  tƒ  d¡¡ W d   ƒ d S 1 sw   Y  d S )Nr   r   Úquit©r   r   Ú
+assertTruer   r   r   r
+   r
+   r   Útest_quit_exitso   ó   "ÿz$TestHBNBCommand_exit.test_quit_exitsc                 C   r3   )Nr   r   ZEOFr5   r   r
+   r
+   r   Útest_EOF_exitss   r8   z#TestHBNBCommand_exit.test_EOF_exitsN)r   r   r   r    r7   r9   r
+   r
+   r
+   r   r2   l   s    r2   c                   @   sH   e Zd ZdZedd„ ƒZedd„ ƒZdd „ Z dd	„ Zd
+d
+„ Z	dd
+„ Z
+dS )ÚTestHBNBCommand_createz?Unittests for testing create from the HBNB command interpreter.c                 C   ó.   zt  dd¡ W n	 ty   Y nw i t_d S ©Nz	file.jsonÚtmp)ÚosÚrenameÚ IOErrorr   Z _TestHBNBCommand_create__objectsr
+   r
+   r
+   r   ÚsetUp{   ó   ÿ
+zTestHBNBCommand_create.setUpc                 C   óJ   z t  d¡ W n	 ty   Y nw z	t  dd¡ W d S  ty$   Y d S w r<   ©r>   Úremover@   r?   r
+   r
+   r
+   r   ÚtearDownƒ   ó   ÿÿzTestHBNBCommand_create.tearDownc                 C   r"   )Nú** class name missing **r   r   Zcreater   ©r   Ú correctr   r
+   r
+   r   Útest_create_missing_classŽ   r&   z0TestHBNBCommand_create.test_create_missing_classc                 C   r"   )Nú** class doesn't exist **r   r   zcreate MyModelr   rI   r
+   r
+   r   Útest_create_invalid_class”   r&   z0TestHBNBCommand_create.test_create_invalid_classc                 C   s¶   d}t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ n1 s'w   Y  d}t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ d S 1 sTw   Y  d S ) Nz$*** Unknown syntax: MyModel.create()r   r   zMyModel.create()z&*** Unknown syntax: BaseModel.create()zBaseModel.create()r   rI   r
+   r
+   r   Útest_create_invalid_syntaxš   s   þ"þz1TestHBNBCommand_create.test_create_invalid_syntaxc                 C   s~  t dtƒ d0}|  tƒ  d¡¡ |  dt|  ¡  ¡ ƒ¡ d 	|  ¡  ¡ ¡}|  
+|t
+ ¡  
+¡ ¡ W d   ƒ n1 s:w   Y  t dtƒ d0}|  tƒ  d¡¡ |  dt|  ¡  ¡ ƒ¡ d  	|  ¡  ¡ ¡}|  
+|t
+ ¡  
+¡ ¡ W d   ƒ n1 syw   Y  t dtƒ d0}|  tƒ  d¡¡ |  dt|  ¡  ¡ ƒ¡ d	 	|  ¡  ¡ ¡}|  
+|t
+ ¡  
+¡ ¡ W d   ƒ n1 s¸w   Y  t dtƒ d0}|  tƒ  d
+¡¡ |  dt|  ¡  ¡ ƒ¡ d
+ 	|  ¡  ¡ ¡}|  
+|t
+ ¡  
+¡ ¡ W d   ƒ n1 s÷w   Y  t dtƒ d0}|  tƒ  d¡¡ |  dt|  ¡  ¡ ƒ¡ d
+ 	|  ¡  ¡ ¡}|  
+|t
+ ¡  
+¡ ¡ W d   ƒ n	1 s7w   Y  t dtƒ d0}|  tƒ  d¡¡ |  dt|  ¡  ¡ ƒ¡ d 	|  ¡  ¡ ¡}|  
+|t
+ ¡  
+¡ ¡ W d   ƒ n	1 sww   Y  t dtƒ d1}|  tƒ  d¡¡ |  dt|  ¡  ¡ ƒ¡ d 	|  ¡  ¡ ¡}|  
+|t
+ ¡  
+¡ ¡ W d   ƒ d S 1 s¸w   Y  d S )Nr   r   úcreate BaseModelr   úBaseModel.{}ú
+create Userú User.{}úcreate StateúState.{}ú
+create Cityú City.{}úcreate Amenityú
+Amenity.{}úcreate PlaceúPlace.{}ú
+create Reviewú	Review.{})r   r   r   r   r   Ú
+assertLessÚlenr   r   ÚformatÚassertInr   ÚallÚkeys)r   r   Z testKeyr
+   r
+   r   Útest_create_object¤   sT   üüüüüü$üz)TestHBNBCommand_create.test_create_objectN)
+r   r   r   r    Ú
+classmethodrA   rF   rK   rM   rN   rc   r
+   r
+   r
+   r   r:   x   s    
+ 
+
+
+r:   c                   @   sh   e Zd ZdZedd„ ƒZedd„ ƒZdd „ Z dd	„ Zd
+d
+„ Z	dd
+„ Z
+dd„ Z
+dd„ Zdd„ Z
+dd„ Z
+dS )ÚTestHBNBCommand_showz<Unittests for testing show from the HBNB command interpreterc                 C   r;   r<   )r>   r?   r@   r   Z_TestHBNBCommand_show__objectsr
+   r
+   r
+   r   rA   Í   rB   zTestHBNBCommand_show.setUpc                 C   rC   r<   rD   r
+   r
+   r
+   r   rF   Õ   rG   zTestHBNBCommand_show.tearDownc                 C   ó²   d}t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ n1 s'w   Y  t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ d S 1 sRw   Y  d S )NrH   r   r   Zshowz .show()r   rI   r
+   r
+   r   Útest_show_missing_classà   ó   þ"þz,TestHBNBCommand_show.test_show_missing_classc                 C   rf   )NrL   r   r   zshow MyModelzMyModel.show()r   rI   r
+   r
+   r   Útest_show_invalid_classé   rh   z,TestHBNBCommand_show.test_show_invalid_classc                 C   óX  d}t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ n1 s'w   Y  t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ n1 sQw   Y  t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ n1 s{w   Y  t dtƒ d}|  tƒ  d ¡¡ |  || ¡   ¡ ¡ W d   ƒ n1 s¥w   Y  t dtƒ d}|  tƒ  d¡¡ |  || ¡   ¡ ¡ W d   ƒ n1 sÏw   Y  t dtƒ d}|  tƒ  d	¡¡ |  || ¡   ¡ ¡ W d   ƒ n1 sùw   Y  t dtƒ d}|  tƒ  d
+¡¡ |  || ¡   ¡ ¡ W d   ƒ d S 1 s%w   Y  d S )
+Nú** instance id missing **r   r   zshow BaseModelz	show Userz
+show Statez	show Cityzshow Amenityz
+show Placez
+show Reviewr   rI   r
+   r
+   r   Ú#test_show_missing_id_space_notationò   ó:   þþþþþþ$þz8TestHBNBCommand_show.test_show_missing_id_space_notationc                 C   rj   )
+Nrk   r   r   zBaseModel.show()z
+User.show()zState.show()z
+City.show()zAmenity.show()zPlace.show()z
+Review.show()r   rI   r
+   r
+   r   Ú!test_show_missing_id_dot_notation
+  rm   z6TestHBNBCommand_show.test_show_missing_id_dot_notationc                 C   rj   )
+Nú** no instance found **r   r   zshow BaseModel 1z
+show User 1zshow State 1z
+show City 1zshow Amenity 1zshow Place 1z
+show Review 1r   rI   r
+   r
+   r   Ú*test_show_no_instance_found_space_notation"  rm   z?TestHBNBCommand_show.test_show_no_instance_found_space_notationc                 C   rj   )
+Nro   r   r   zBaseModel.show(1)zUser.show(1)z
+State.show(1)zCity.show(1)zAmenity.show(1)z
+Place.show(1)zReview.show(1)r   rI   r
+   r
+   r   Ú(test_show_no_instance_found_dot_notation:  rm   z=TestHBNBCommand_show.test_show_no_instance_found_dot_notationc                 C   óX  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n1 s!w   Y  t dtƒ d+}t  ¡ d 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+| 
+¡ | ¡  ¡ ¡ W d   ƒ n1 s[w   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n1 sw   Y  t dtƒ d+}t  ¡ d  	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+| 
+¡ | ¡  ¡ ¡ W d   ƒ n1 s»w   Y  t dtƒ d}|  tƒ  d	¡¡ | ¡  ¡ }W d   ƒ n1 sáw   Y  t dtƒ d+}t  ¡ d
+ 	|¡ }d
+ 	|¡}|  tƒ  |¡¡ |  
+| 
+¡ | ¡  ¡ ¡ W d   ƒ n	1 sw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n	1 sCw   Y  t dtƒ d+}t  ¡ d
+ 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+| 
+¡ | ¡  ¡ ¡ W d   ƒ n	1 s~w   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n	1 s¥w   Y  t dtƒ d+}t  ¡ d 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+| 
+¡ | ¡  ¡ ¡ W d   ƒ n	1 sàw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n	1 s w   Y  t dtƒ d+}t  ¡ d 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+| 
+¡ | ¡  ¡ ¡ W d   ƒ n	1 sBw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n	1 siw   Y  t dtƒ d,}t  ¡ d 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+| 
+¡ | ¡  ¡ ¡ W d   ƒ d S 1 s¥w   Y  d S )Nr   r   rO   rP   zshow BaseModel {}rQ   rR   úshow User {}rS   rT   ú
+show State {}rY   rZ   ú
+show Place {}rU   rV   úshow City {}rW   rX   úshow Amenity {}r[   r\   úshow Review {}©r   r   r   r   r   r   r   r   ra   r_   r	   Ú __str__©r   r   ZtestIDÚobjZ commandr
+   r
+   r   Ú test_show_objects_space_notationR  óŒ   þ
+üþ
+üþ
+üþ
+üþ
+üþ
+üþ
+$üz5TestHBNBCommand_show.test_show_objects_space_notationc                 C   rr   )Nr   r   rO   rP   zBaseModel.show({})rQ   rR   z
+User.show({})rS   rT   zState.show({})rY   rZ   zPlace.show({})rU   rV   z
+City.show({})rW   rX   zAmenity.show({})r[   r\   zReview.show({})ry   r{   r
+   r
+   r   r}   Œ  r~   N)r   r   r   r    rd   rA   rF   rg   ri   rl   rn   rp   rq   r}   r
+   r
+   r
+   r   re   Ê   s    
+ 
+
+		:re   c                   @   sh   e Zd ZdZedd„ ƒZedd„ ƒZdd „ Z dd	„ Zd
+d
+„ Z	dd
+„ Z
+dd„ Z
+dd„ Zdd„ Z
+dd„ ZdS )ÚTestHBNBCommand_destroyz@Unittests for testing destroy from the HBNB command interpreter.c                 C   r;   r<   )r>   r?   r@   r   Z!_TestHBNBCommand_destroy__objectsr
+   r
+   r
+   r   rA   Ê  rB   zTestHBNBCommand_destroy.setUpc                 C   sR   z t  d¡ W n	 ty   Y nw zt  dd¡ W n	 ty"   Y nw t ¡  d S r<   )r>   rE   r@   r?   r   Úreloadr
+   r
+   r
+   r   rF   Ò  s   ÿÿz TestHBNBCommand_destroy.tearDownc                 C   rf   )NrH   r   r   Z destroyz
+.destroy()r   rI   r
+   r
+   r   Útest_destroy_missing_classÞ  rh   z2TestHBNBCommand_destroy.test_destroy_missing_classc                 C   rf   )NrL   r   r   zdestroy MyModelzMyModel.destroy()r   rI   r
+   r
+   r   Útest_destroy_invalid_classç  rh   z2TestHBNBCommand_destroy.test_destroy_invalid_classc                 C   rj   )
+Nrk   r   r   zdestroy BaseModelzdestroy Userz
+destroy Statezdestroy Cityzdestroy Amenityz
+destroy Placezdestroy Reviewr   rI   r
+   r
+   r   Ú&test_destroy_id_missing_space_notationð  rm   z>TestHBNBCommand_destroy.test_destroy_id_missing_space_notationc                 C   rj   )
+Nrk   r   r   zBaseModel.destroy()zUser.destroy()zState.destroy()zCity.destroy()zAmenity.destroy()zPlace.destroy()zReview.destroy()r   rI   r
+   r
+   r   Ú$test_destroy_id_missing_dot_notation  rm   z<TestHBNBCommand_destroy.test_destroy_id_missing_dot_notationc                 C   rj   )
+Nro   r   r   zdestroy BaseModel 1zdestroy User 1zdestroy State 1zdestroy City 1zdestroy Amenity 1zdestroy Place 1zdestroy Review 1r   rI   r
+   r
+   r   Ú&test_destroy_invalid_id_space_notation   rm   z>TestHBNBCommand_destroy.test_destroy_invalid_id_space_notationc                 C   rj   )
+Nro   r   r   zBaseModel.destroy(1)zUser.destroy(1)zState.destroy(1)zCity.destroy(1)zAmenity.destroy(1)zPlace.destroy(1)zReview.destroy(1)r   rI   r
+   r
+   r   Ú$test_destroy_invalid_id_dot_notation8  rm   z<TestHBNBCommand_destroy.test_destroy_invalid_id_dot_notationc                 C   ó   t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n1 s!w   Y  t dtƒ d'}t  ¡ d 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+|t  ¡ ¡ W d   ƒ n1 sWw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n1 s}w   Y  t dtƒ d'}t  ¡ d  	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+|t  ¡ ¡ W d   ƒ n1 s³w   Y  t dtƒ d}|  tƒ  d	¡¡ | ¡  ¡ }W d   ƒ n1 sÙw   Y  t dtƒ d'}t  ¡ d
+ 	|¡ }d
+ 	|¡}|  tƒ  |¡¡ |  
+|t  ¡ ¡ W d   ƒ n	1 sw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n	1 s7w   Y  t dtƒ d'}t  ¡ d
+ 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+|t  ¡ ¡ W d   ƒ n	1 snw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n	1 s•w   Y  t dtƒ d'}t  ¡ d 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+|t  ¡ ¡ W d   ƒ n	1 sÌw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n	1 sów   Y  t dtƒ d'}t  ¡ d 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+|t  ¡ ¡ W d   ƒ n	1 s*w   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }W d   ƒ n	1 sQw   Y  t dtƒ d(}t  ¡ d 	|¡ }d 	|¡}|  tƒ  |¡¡ |  
+|t  ¡ ¡ W d   ƒ d S 1 s‰w   Y  d S )Nr   r   rO   rP   zdestroy BaseModel {}rQ   rR   rs   rS   rT   rt   rY   rZ   ru   rU   rV   rv   rW   rX   rw   r[   r\   rx   ©
+r   r   r   r   r   r   r   r   ra   r_   Ú
+assertNotInr{   r
+   r
+   r   Ú#test_destroy_objects_space_notationP  óŒ   þ
+üþ
+üþ
+üþ
+üþ
+üþ
+üþ
+$üz;TestHBNBCommand_destroy.test_destroy_objects_space_notationc                 C   r‡   )Nr   r   rO   rP   zBaseModel.destroy({})rQ   rR   zUser.destroy({})rS   rT   zState.destroy({})rY   rZ   zPlace.destroy({})rU   rV   zCity.destroy({})rW   rX   zAmenity.destroy({})r[   r\   zReview.destory({})rˆ   r{   r
+   r
+   r   Ú!test_destroy_objects_dot_notationŠ  r‹   z9TestHBNBCommand_destroy.test_destroy_objects_dot_notationN)r   r   r   r    rd   rA   rF   r   r‚   rƒ   r„   r…   r†   rŠ   rŒ   r
+   r
+   r
+   r   r   Ç  s    
+ 
+
+		:r   c                   @   sP   e Zd ZdZedd„ ƒZedd„ ƒZdd „ Z dd	„ Zd
+d
+„ Z	dd
+„ Z
+dd„ Z
+dS )ÚTestHBNBCommand_allz:Unittests for testing all of the HBNB command interpreter.c                 C   r;   r<   )r>   r?   r@   r   Z_TestHBNBCommand_all__objectsr
+   r
+   r
+   r   rA   È  rB   zTestHBNBCommand_all.setUpc                 C   rC   r<   rD   r
+   r
+   r
+   r   rF   Ð  rG   zTestHBNBCommand_all.tearDownc                 C   rf   )NrL   r   r   z
+all MyModelz
+MyModel.all()r   rI   r
+   r
+   r   Útest_all_invalid_classÛ  rh   z*TestHBNBCommand_all.test_all_invalid_classc                 C   ó~  t dtƒ dG}|  tƒ  d¡¡ |  tƒ  d¡¡ |  tƒ  d¡¡ |  tƒ  d¡¡ |  tƒ  d ¡¡ |  tƒ  d¡¡ |  tƒ  d	¡¡ W d   ƒ n1 sQw   Y  t dtƒ dX}|  tƒ  d
+¡¡ |  d
+| ¡   ¡ ¡ |  d| ¡   ¡ ¡ |  d
+| ¡   ¡ ¡ |  d| ¡   ¡ ¡ |  d| ¡   ¡ ¡ |  d| ¡   ¡ ¡ |  d| ¡   ¡ ¡ W d   ƒ d S 1 s¸w   Y  d S )Nr   r   rO   rQ   rS   rY   rU   rW   r[   ra   Ú	BaseModelÚUserÚStateÚPlaceÚCityÚ AmenityÚReview©r   r   r   r   r   r`   r   r   r   r
+   r
+   r   Útest_all_objects_space_notationä  ó&   ù"øz3TestHBNBCommand_all.test_all_objects_space_notationc                 C   r   )Nr   r   rO   rQ   rS   rY   rU   rW   r[   z.all()r   r‘   r’   r“   r”   r•   r–   r—   r   r
+   r
+   r   Útest_all_objects_dot_notation÷  r™   z1TestHBNBCommand_all.test_all_objects_dot_notationc                 C   ó’  t dtƒ dG}|  tƒ  d¡¡ |  tƒ  d¡¡ |  tƒ  d¡¡ |  tƒ  d¡¡ |  tƒ  d ¡¡ |  tƒ  d¡¡ |  tƒ  d	¡¡ W d   ƒ n1 sQw   Y  t dtƒ d%}|  tƒ  d
+¡¡ |  d
+| ¡   ¡ ¡ |  d| ¡   ¡ ¡ W d   ƒ n1 s…w   Y  t dtƒ d%}|  tƒ  d
+¡¡ |  d| ¡   ¡ ¡ |  d
+| ¡   ¡ ¡ W d   ƒ n1 s¹w   Y  t dtƒ d%}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ |  d
+| ¡   ¡ ¡ W d   ƒ n1 síw   Y  t dtƒ d%}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ |  d
+| ¡   ¡ ¡ W d   ƒ n	1 s"w   Y  t dtƒ d%}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ |  d
+| ¡   ¡ ¡ W d   ƒ n	1 sWw   Y  t dtƒ d%}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ |  d
+| ¡   ¡ ¡ W d   ƒ n	1 sŒw   Y  t dtƒ d&}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ |  d
+| ¡   ¡ ¡ W d   ƒ d S 1 sÂw   Y  d S )Nr   r   rO   rQ   rS   rY   rU   rW   r[   z
+all BaseModelr   r‘   zall Userz	all Stater’   zall Cityr”   z
+all Amenityr•   z	all Placer“   z
+all Reviewr–   ©	r   r   r   r   r   r`   r   r   r‰   r   r
+   r
+   r   Ú%test_all_single_object_space_notation
+  óX   ùýýýýýý$ýz9TestHBNBCommand_all.test_all_single_object_space_notationc                 C   r›   )Nr   r   rO   rQ   rS   rY   rU   rW   r[   zBaseModel.all()r   r‘   z
+User.all()z
+State.all()r’   z
+City.all()r”   z
+Amenity.all()r•   z
+Place.all()r“   zReview.all()r–   rœ   r   r
+   r
+   r   Ú#test_all_single_object_dot_notation0  rž   z7TestHBNBCommand_all.test_all_single_object_dot_notationN)r   r   r   r    rd   rA   rF   rŽ   r˜   rš   r   rŸ   r
+   r
+   r
+   r   r   Å  s    
+ 
+
+	&r   c                   @   sØ   e Zd ZdZedd„ ƒZedd„ ƒZdd „ Z dd	„ Zd
+d
+„ Z	dd
+„ Z
+dd„ Z
+dd„ Zdd„ Z
+dd„ Zdd„ Zdd„ Zdd„ Zdd„ Zdd„ Zd d!„ Zd"d#„ Zd$d%„ Zd&d'„ Zd(d)„ Zd*d+„ Zd,d-„ Zd.d/„ Zd0d1„ Zd2S )3ÚTestHBNBCommand_updatez?Unittests for testing update from the HBNB command interpreter.c                 C   r;   r<   )r>   r?   r@   r   Z _TestHBNBCommand_update__objectsr
+   r
+   r
+   r   rA   Z  rB   zTestHBNBCommand_update.setUpc                 C   rC   r<   rD   r
+   r
+   r
+   r   rF   b  rG   zTestHBNBCommand_update.tearDownc                 C   rf   )NrH   r   r   Úupdatez	.update()r   rI   r
+   r
+   r   Útest_update_missing_classm  rh   z0TestHBNBCommand_update.test_update_missing_classc                 C   rf   )NrL   r   r   zupdate MyModelzMyModel.update()r   rI   r
+   r
+   r   Útest_update_invalid_classv  rh   z0TestHBNBCommand_update.test_update_invalid_classc                 C   rj   )
+Nrk   r   r   zupdate BaseModelz
+update Userzupdate Statez
+update Cityzupdate Amenityzupdate Placez
+update Reviewr   rI   r
+   r
+   r   Ú%test_update_missing_id_space_notation  rm   z<TestHBNBCommand_update.test_update_missing_id_space_notationc                 C   rj   )
+Nrk   r   r   zBaseModel.update()z
+User.update()zState.update()z
+City.update()zAmenity.update()zPlace.update()zReview.update()r   rI   r
+   r
+   r   Ú#test_update_missing_id_dot_notation—  rm   z:TestHBNBCommand_update.test_update_missing_id_dot_notationc                 C   rj   )
+Nro   r   r   zupdate BaseModel 1z
+update User 1zupdate State 1z
+update City 1zupdate Amenity 1zupdate Place 1zupdate Review 1r   rI   r
+   r
+   r   Ú%test_update_invalid_id_space_notation¯  rm   z<TestHBNBCommand_update.test_update_invalid_id_space_notationc                 C   rj   )
+Nro   r   r   zBaseModel.update(1)zUser.update(1)zState.update(1)zCity.update(1)zAmenity.update(1)zPlace.update(1)zReview.update(1)r   rI   r
+   r
+   r   Ú#test_update_invalid_id_dot_notationÇ  rm   z:TestHBNBCommand_update.test_update_invalid_id_dot_notationc                 C   ó  d}t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }d  |¡}W d   ƒ n1 s(w   Y  t dtƒ d}|  tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n1 sRw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }d   |¡}W d   ƒ n1 s}w   Y  t dtƒ d}|  tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n1 s§w   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }d	  |¡}W d   ƒ n1 sÒw   Y  t dtƒ d}|  tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n1 süw   Y  t dtƒ d}|  tƒ  d
+¡¡ | ¡  ¡ }d
+  |¡}W d   ƒ n	1 s(w   Y  t dtƒ d}|  tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n	1 sSw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }d
+  |¡}W d   ƒ n	1 sw   Y  t dtƒ d}|  tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n	1 sªw   Y  t dtƒ d}|  tƒ  d¡¡ | ¡  ¡ }d  |¡}W d   ƒ n	1 sÖw   Y  t dtƒ d}|  tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ d S 1 sw   Y  d S )Nú** attribute name missing **r   r   rO   zupdate BaseModel {}rQ   zupdate User {}rS   zupdate State {}rU   zupdate City {}rW   zupdate Amenity {}rY   zupdate Place {}©	r   r   r   r   r   r   r   r_   r	   ©r   rJ   r   ÚtestIdÚ testCmdr
+   r
+   r   Ú,test_update_missing_attr_name_space_notationß  ón   ýþýþýþýþýþý$þzCTestHBNBCommand_update.test_update_missing_attr_name_space_notationc                 C   r¨   )Nr©   r   r   rO   zBaseModel.update({})rQ   zUser.update({})rS   zState.update({})rU   zCity.update({})rW   zAmenity.update({})rY   zPlace.update({})rª   r«   r
+   r
+   r   Ú*test_update_missing_attr_name_dot_notation  r¯   zATestHBNBCommand_update.test_update_missing_attr_name_dot_notationc                 C   ó–  d}t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 s w   Y  t dtƒ d }d |¡}|   tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n1 sOw   Y  t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 srw   Y  t dtƒ d }d  |¡}|   tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n1 s¡w   Y  t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sÄw   Y  t dtƒ d }d	 |¡}|   tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n1 sów   Y  t dtƒ d}tƒ  d
+¡ | ¡  ¡ }W d   ƒ n	1 sw   Y  t dtƒ d }d
+ |¡}|   tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n	1 sGw   Y  t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 skw   Y  t dtƒ d }d
+ |¡}|   tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n	1 s›w   Y  t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 s¿w   Y  t dtƒ d }d |¡}|   tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ n	1 sïw   Y  t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 sw   Y  t dtƒ d!}d |¡}|   tƒ  |¡¡ |  || ¡  ¡ ¡ W d   ƒ d S 1 sDw   Y  d S )Nú** value missing **r   r   rO   zupdate BaseModel {} attr_namerQ   zupdate User {} attr_namerS   zupdate State {} attr_namerU   zupdate City {} attr_namerW   zupdate Amenity {} attr_namerY   zupdate Place {} attr_namer[   zupdate Review {} attr_name©	r   r   r   r   r   r   r_   r   r	   r«   r
+   r
+   r   Ú-test_update_missing_attr_value_space_notation9  ó€   þ
+ýþ
+ýþ
+ýþ
+ýþ
+ýþ
+ýþ
+$ýzDTestHBNBCommand_update.test_update_missing_attr_value_space_notationc                 C   r±   )Nr²   r   r   rO   zBaseModel.update({}, attr_name)rQ   zUser.update({}, attr_name)rS   zState.update({}, attr_name)rU   zCity.update({}, attr_name)rW   zAmenity.update({}, attr_name)rY   zPlace.update({}, attr_name)r[   zReview.update({}, attr_name)r³   r«   r
+   r
+   r   Ú+test_update_missing_attr_value_dot_notationm  rµ   zBTestHBNBCommand_update.test_update_missing_attr_value_dot_notationc                 C   s´  t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sw   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 saw   Y  d	 |¡}|   tƒ  |¡¡ t 	¡ d
+ |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d
+¡ | ¡  ¡ }W d   ƒ n1 s¤w   Y  d |¡}|   tƒ  |¡¡ t 	¡ d
+ |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sçw   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 s+w   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 sow   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 s³w   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  d|d  ¡ d S )Nr   r   rO   z*update BaseModel {} attr_name 'attr_value'rP   Ú
+attr_valueÚ	attr_namerQ   z%update User {} attr_name 'attr_value'rR   rS   z&update State {} attr_name 'attr_value'rT   rU   z%update City {} attr_name 'attr_value'rV   rY   z&update Place {} attr_name 'attr_value'rZ   rW   z(update Amenity {} attr_name 'attr_value'rX   r[   z'update Review {} attr_name 'attr_value'r\   )
+r   r   r   r   r   r   r_   r   r   ra   Ú__dict__r	   r6   ©r   r   r¬   r­   Ú	test_dictr
+   r
+   r   Ú,test_update_valid_string_attr_space_notation¡  óp   þ
+þ
+þ
+þ
+þ
+þ
+þ
+zCTestHBNBCommand_update.test_update_valid_string_attr_space_notationc                 C   s´  t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sw   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 saw   Y  d	 |¡}|   tƒ  |¡¡ t 	¡ d
+ |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d
+¡ | ¡  ¡ }W d   ƒ n1 s¤w   Y  d |¡}|   tƒ  |¡¡ t 	¡ d
+ |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sçw   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 s+w   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 sow   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 s³w   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ d S )Nr   r   rO   z-BaseModel.update({}, attr_name, 'attr_value')rP   r·   r¸   rQ   z(User.update({}, attr_name, 'attr_value')rR   rS   z)State.update({}, attr_name, 'attr_value')rT   rU   z(City.update({}, attr_name, 'attr_value')rV   rY   z)Place.update({}, attr_name, 'attr_value')rZ   rW   z+Amenity.update({}, attr_name, 'attr_value')rX   r[   z*Review.update({}, attr_name, 'attr_value')r\   ©r   r   r   r   r   r   r_   r   r   ra   r¹   r	   ©r   r   ZtIdr­   r»   r
+   r
+   r   Ú*test_update_valid_string_attr_dot_notationÚ  r½   zATestHBNBCommand_update.test_update_valid_string_attr_dot_notationc                 C   óŠ   t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sw   Y  d |¡}|   tƒ  |¡¡ t 	¡ d |¡ j
+}|  
+d|d  ¡ d S )Nr   r   rY   zupdate Place {} max_guest 98rZ   éb   Ú	max_guestr¾   rº   r
+   r
+   r   Ú)test_update_valid_int_attr_space_notation  ó   þ
+z@TestHBNBCommand_update.test_update_valid_int_attr_space_notationc                 C   rÁ   )Nr   r   rY   zPlace.update({}, max_guest, 98)rZ   rÂ   rÃ   r¾   r¿   r
+   r
+   r   Ú'test_update_valid_int_attr_dot_notation  rÅ   z>TestHBNBCommand_update.test_update_valid_int_attr_dot_notationc                 C   rÁ   )Nr   r   rY   zupdate Place {} latitude 7.2rZ   çÍÌÌÌÌÌ@Úlatituder¾   rº   r
+   r
+   r   Ú+test_update_valid_float_attr_space_notation%  rÅ   zBTestHBNBCommand_update.test_update_valid_float_attr_space_notationc                 C   rÁ   )Nr   r   rY   zPlace.update({}, latitude, 7.2)rZ   rÇ   rÈ   r¾   r¿   r
+   r
+   r   Ú)test_update_valid_float_attr_dot_notation.  rÅ   z@TestHBNBCommand_update.test_update_valid_float_attr_dot_notationc                 C   óÂ  t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sw   Y  d |¡}|d7 }tƒ  |¡ t  ¡ d |¡ j	}|  
+d |d ¡ t dtƒ d}tƒ  d	¡ | ¡  ¡ }W d   ƒ n1 sbw   Y  d
+ |¡}|d7 }tƒ  |¡ t  ¡ d
+ |¡ j	}|  
+d |d ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 s¦w   Y  d
+ |¡}|d7 }tƒ  |¡ t  ¡ d |¡ j	}|  
+d |d ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sêw   Y  d |¡}|d7 }tƒ  |¡ t  ¡ d |¡ j	}|  
+d |d ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 s/w   Y  d |¡}|d7 }tƒ  |¡ t  ¡ d |¡ j	}|  
+d |d ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 stw   Y  d |¡}|d7 }tƒ  |¡ t  ¡ d |¡ j	}|  
+d |d ¡ t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n	1 s¹w   Y  d |¡}|d7 }tƒ  |¡ t  ¡ d |¡ j	}|  
+d |d ¡ d S )Nr   r   rO   zupdate BaseModel {} z{'attr_name': 'attr_value'}rP   r·   r¸   rQ   zupdate User {} rR   rS   zupdate State {} rT   rU   zupdate City {} rV   rY   úupdate Place {} rZ   rW   zupdate Amenity {} rX   r[   zupdate Review {} r\   ©
+r   r   r   r   r   r   r_   r   ra   r¹   r	   rº   r
+   r
+   r   Ú+test_update_valid_dictionary_space_notation7  ó~   þ
+þ
+þ
+þ
+þ
+þ
+þ
+zBTestHBNBCommand_update.test_update_valid_dictionary_space_notationc                 C   rË   )Nr   r   rO   zBaseModel.update({}z{'attr_name': 'attr_value'})rP   r·   r¸   rQ   zUser.update({}, rR   rS   zState.update({}, rT   rU   zCity.update({}, rV   rY   úPlace.update({}, rZ   rW   zAmenity.update({}, rX   r[   zReview.update({}, r\   rÍ   rº   r
+   r
+   r   Ú)test_update_valid_dictionary_dot_notationw  rÏ   z@TestHBNBCommand_update.test_update_valid_dictionary_dot_notationc                 C   óŒ   t dtƒ d}tƒ  d¡ | ¡  ¡ }W d   ƒ n1 sw   Y  d |¡}|d7 }tƒ  |¡ t  ¡ d |¡ j	}|  
+d |d ¡ d S )	Nr   r   rY   rÌ   ú{'max_guest': 98})rZ   rÂ   rÃ   rÍ   rº   r
+   r
+   r   Ú4test_update_valid_dictionary_with_int_space_notation·  ó   þ
+zKTestHBNBCommand_update.test_update_valid_dictionary_with_int_space_notationc                 C   rÒ   )	Nr   r   rY   rÐ   rÓ   rZ   rÂ   rÃ   rÍ   rº   r
+   r
+   r   Ú2test_update_valid_dictionary_with_int_dot_notationÁ  rÕ   zITestHBNBCommand_update.test_update_valid_dictionary_with_int_dot_notationc                 C   rÒ   )	Nr   r   rY   rÌ   ú{'latitude': 9.8})rZ   çš™™™™™#@rÈ   rÍ   rº   r
+   r
+   r   Ú6test_update_valid_dictionary_with_float_space_notationË  rÕ   zMTestHBNBCommand_update.test_update_valid_dictionary_with_float_space_notationc                 C   rÒ   )	Nr   r   rY   rÐ   r×   rZ   rØ   rÈ   rÍ   rº   r
+   r
+   r   Ú4test_update_valid_dictionary_with_float_dot_notationÕ  rÕ   zKTestHBNBCommand_update.test_update_valid_dictionary_with_float_dot_notationN)r   r   r   r    rd   rA   rF   r¢   r£   r¤   r¥   r¦   r§   r®   r°   r´   r¶   r¼   rÀ   rÄ   rÆ   rÉ   rÊ   rÎ   rÑ   rÔ   rÖ   rÙ   rÚ   r
+   r
+   r
+   r   r    W  s8    
+ 
+
+		--4499				@@
+
+
+r    c                   @   s8   e Zd ZdZedd„ ƒZedd„ ƒZdd „ Z dd	„ Zd
+S )
+ÚTestHBNBCommand_countz>Unittests for testing count method of HBNB comand interpreter.c                 C   r;   r<   )r>   r?   r@   r   Z_FileStorage__objectsr
+   r
+   r
+   r   rA   ã  rB   zTestHBNBCommand_count.setUpc                 C   rC   r<   rD   r
+   r
+   r
+   r   rF   ë  rG   zTestHBNBCommand_count.tearDownc                 C   sZ   t dtƒ d}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ W d   ƒ d S 1 s&w   Y  d S )Nr   r   zMyModel.count()Ú0r   r   r
+   r
+   r   Útest_count_invalid_classö  r   z.TestHBNBCommand_count.test_count_invalid_classc                 C   s   t dtƒ d}|  tƒ  d¡¡ W d   ƒ n1 sw   Y  t dtƒ d}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ W d   ƒ n1 sEw   Y  t dtƒ d}|  tƒ  d¡¡ W d   ƒ n1 sew   Y  t dtƒ d}|  tƒ  d ¡¡ |  d| ¡   ¡ ¡ W d   ƒ n1 sw   Y  t dtƒ d}|  tƒ  d¡¡ W d   ƒ n1 s¯w   Y  t dtƒ d}|  tƒ  d	¡¡ |  d| ¡   ¡ ¡ W d   ƒ n1 sÙw   Y  t dtƒ d}|  tƒ  d
+¡¡ W d   ƒ n1 sùw   Y  t dtƒ d}|  tƒ  d
+¡¡ |  d| ¡   ¡ ¡ W d   ƒ n	1 s$w   Y  t dtƒ d}|  tƒ  d¡¡ W d   ƒ n	1 sEw   Y  t dtƒ d}|  tƒ  d
+¡¡ |  d| ¡   ¡ ¡ W d   ƒ n	1 spw   Y  t dtƒ d}|  tƒ  d¡¡ W d   ƒ n	1 s‘w   Y  t dtƒ d}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ W d   ƒ n	1 s¼w   Y  t dtƒ d}|  tƒ  d¡¡ W d   ƒ n	1 sÝw   Y  t dtƒ d}|  tƒ  d¡¡ |  d| ¡   ¡ ¡ W d   ƒ d S 1 s	w   Y  d S )Nr   r   rO   zBaseModel.count()Ú1rQ   zUser.count()rS   z
+State.count()rY   z
+Place.count()rU   zCity.count()rW   zAmenity.count()r[   zReview.count()r   r   r
+   r
+   r   Útest_count_objectû  sb   ÿþÿþÿþÿþÿþÿþÿ$þz'TestHBNBCommand_count.test_count_objectN)	r   r   r   r    rd   rA   rF   rÝ   rß   r
+   r
+   r
+   r   rÛ   à  s    
+ 
+
+rÛ   Ú__main__)r    r>   ÚsysZunittestZmodelsr   Zmodels.engine.file_storager   Z consoler   Úior   Z
+unittest.mockr   ÚTestCaser   r!   r2   r:   re   r   r   r    rÛ   r   Úmainr
+   r
+   r
+   r   Ú<module>   s:   HR ~       Aÿ
