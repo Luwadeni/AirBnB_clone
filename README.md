@@ -175,4 +175,4 @@ root@Learnsoft:AirBnB$ ./console.py
 (hbnb) 
 ```
 
-#### Authors: [**`Ifeoluwa Oni`**](https://github.com/luwadeni) 
+#### Authors: [**`Ifeoluwa Oni`**](https://github.com/luwadeni)[**`oludare zenos`**](https://github.com/skilogistics) 
