@@ -1,203 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>AirBnb Clone</title>
-    <link rel="stylesheet" href="styles/4-common.css">
+    <meta charset="UTF-8">
+	<title>AirBnB Clone</title>
     <link rel="stylesheet" href="styles/3-header.css">
     <link rel="stylesheet" href="styles/3-footer.css">
+    <link rel="stylesheet" href="styles/4-common.css">
     <link rel="stylesheet" href="styles/6-filters.css">
+    <link rel="stylesheet" href="styles/7-places.css">
     <link rel="stylesheet" href="styles/8-places.css">
-    <link rel="icon" href="images/icon.png" type="image/png">
-</head>
 
+    <link rel="icon" href="./images/icon.png">
+</head>
 <body>
-    <header>
-        <div class="logo"></div>
-    </header>
+	<header></header>
     <div class="container">
         <section class="filters">
-            <button type="button">Search</button>
+            <button>Search</button>
             <div class="locations">
                 <h3>States</h3>
-                <h4>Lagos, Abuja...</h4>
+                <h4>You like what you see?</h4>
                 <ul class="popover">
-                    <li>
-                        <h2>Lagos:</h2>
-                    </li>
-                    <li>
-                        <ul class="popover_list">
-                            <li>Page</li>
-                            <li>Page2</li>
+                    <li><h2>Lagos</h2>
+                        <ul>
+                            <li>Lekki</li>
+                            <li>Agungi</li>
                         </ul>
                     </li>
-                    <li>
-                        <h2>Lagos:</h2>
-                    </li>
-                    <li>
-                        <ul class="popover_list">
-                            <li>Lekki</li>
-                            <li>Ikeja</li>
+		    <li><h2>Oyo</h>
+                        <ul>
+				<li>Ibadan</li>
+                            <li>Oyo</li>
                         </ul>
                     </li>
                 </ul>
             </div>
             <div class="amenities">
                 <h3>Amenities</h3>
-                <h4>Internet, Kitchen...</h4>
+                <h4>You like what you see?</h4>
                 <ul class="popover">
-                    <li>Internet</li>
-                    <li>TV</li>
-                    <li>Kitchen</li>
-                    <li>Iron</li>
+                    <li>bikini</li>
+                    <li>waist_beads</li>
                 </ul>
             </div>
-        </section>
-        <section class="places">
-            <div class="places_title">
-                <h1>Places</h1>
-            </div>
-            <div class="articles">
-                <article>
-                    <div class="price_title">
-                        <div class="article_title">
-                            <h2>My Home</h2>
-                        </div>
-                        <div class="price_by_night">
-                            <div class="price">
-                                $80
-                            </div>
-                        </div>
-                    </div>
-                    <div class="information">
-                        <div class="max_guest">
-                            <div class="guest_icon">
-                            </div>
-                            <div class="guest_number">
-                                <h2>2 Guests</h2>
-                            </div>
-                        </div>
-                        <div class="number_rooms">
-                            <div class="rooms_icon">
-                            </div>
-                            <div class="rooms_number">
-                                <h2>1 Bedroom</h2>
-                            </div>
-                        </div>
-                        <div class="number_bathrooms">
-                            <div class="bathrooms_icon">
-                            </div>
-                            <div class="bathrooms_number">
-                                <h2>1 Bathroom</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <b>Owner:</b> Ifeoluwa Oni
-                    </div>
-                    <div class="description">
-                        This is a lovely 1 bedroom and 1 bathroom apartment than can
-                        accomodate 2 people. It locates at center of Lagos
-                        and next to subway line 1, 1 stop to People Square, 2 stops to
-                        Railway, 3 stops to Airport Temple.
-                    </div>
-                </article>
-                <article>
-                    <div class="price_title">
-                        <div class="article_title">
-                            <h2>Tiny House</h2>
-                        </div>
-                        <div class="price_by_night">
-                            <div class="price">
-                                $80
-                            </div>
-                        </div>
-                    </div>
-                    <div class="information">
-                        <div class="max_guest">
-                            <div class="guest_icon">
-                            </div>
-                            <div class="guest_number">
-                                <h2>4 Guests</h2>
-                            </div>
-                        </div>
-                        <div class="number_rooms">
-                            <div class="rooms_icon">
-                            </div>
-                            <div class="rooms_number">
-                                <h2>2 Bedrooms</h2>
-                            </div>
-                        </div>
-                        <div class="number_bathrooms">
-                            <div class="bathrooms_icon">
-                            </div>
-                            <div class="bathrooms_number">
-                                <h2>1 Bathroom</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <b>Owner:</b> William Oludamilare
-                    </div>
-                    <div class="description">
-                        Our place is a private, affordable stand-alone guest house
-                        centrally located just minutes to French Quarters, downtown,
-                        The Fair Groundz(Jazz Fest) and City Park. The guest house is
-                        a quaint, 400 square ft. with a full bath, mini kitchen, & living
-                        room. The extra high cellings make the home feel more
-                        spacious. The sofa converts to a bed also. We have a hand
-                        made counter area that adds character to the room and a
-                        great porch/deck to relax on and have a glass of Merlot.
+        </section> 
 
-                    </div>
-                </article>
-                <article>
-                    <div class="price_title">
-                        <div class="article_title">
-                            <h2>A Suite</h2>
-                        </div>
-                        <div class="price_by_night">
-                            <div class="price">
-                                $190
-                            </div>
-                        </div>
-                    </div>
-                    <div class="information">
-                        <div class="max_guest">
-                            <div class="guest_icon">
-                            </div>
-                            <div class="guest_number">
-                                <h2>2 Guests</h2>
-                            </div>
-                        </div>
-                        <div class="number_rooms">
-                            <div class="rooms_icon">
-                            </div>
-                            <div class="rooms_number">
-                                <h2>1 Bedroom</h2>
-                            </div>
-                        </div>
-                        <div class="number_bathrooms">
-                            <div class="bathrooms_icon">
-                            </div>
-                            <div class="bathrooms_number">
-                                <h2>1 Bathroom</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <b>Owner:</b>Eunice Adenike
-                    </div>
-                    <div class="description">
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    </div>
-                </article>
+        <section class="places">
+          <h1>Places</h1>
+
+          <article>
+            <h2>My home</h2>
+
+            <div class="price_by_night">
+              <p>$100</p>
             </div>
+
+            <div class="information">
+                <div class="max_guest">
+                  <div class="icon-guest"></div>
+                  <p>3 Guests</p>
+                </div>
+
+                <div class="number_rooms">
+                  <div class="icon-rooms"></div>
+                  <p>2 Bedrooms</p>
+                </div>
+
+                <div class="number_bathrooms">
+                  <div class="icon-bath"></div>
+                  <p>3 Bathrooms</p>
+                </div>
+            </div>
+
+            <div class="user"><b>Owner:</b>   Ifeoluwa Oni</div>
+            <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          </article>
+
+          <article>
+            <h2>Tiny house</h2>
+
+            <div class="price_by_night">
+              <p>$50</p>
+            </div>
+
+            <div class="information">
+                <div class="max_guest">
+                  <div class="icon-guest"></div>
+                  <p>2 Guests</p>
+                </div>
+
+                <div class="number_rooms">
+                  <div class="icon-rooms"></div>
+                  <p>1 Bedrooms</p>
+                </div>
+
+                <div class="number_bathrooms">
+                  <div class="icon-bath"></div>
+                  <p>1 Bathrooms</p>
+                </div>
+
+            </div>
+            <div class="user"><b>Owner:</b>  William Oludamilare</div>
+            <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          </article>
+
+          <article>
+            <h2>A suite</h2>
+
+            <div class="price_by_night">
+              <p>$450</p>
+            </div>
+
+            <div class="information">
+                <div class="max_guest">
+                  <div class="icon-guest"></div>
+                  <p>8 Guests</p>
+                </div>
+
+                <div class="number_rooms">
+                  <div class="icon-rooms"></div>
+                  <p>5 Bedrooms</p>
+                </div>
+
+                <div class="number_bathrooms">
+                  <div class="icon-bath"></div>
+                  <p>6 Bathrooms</p>
+                </div>
+
+            </div>
+            <div class="user"><b>Owner:</b>     Eunice Adenike</div>
+            <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          </article>
+          
         </section>
     </div>
-    <footer>
-        Best School
-    </footer>
+	<footer>Best School</footer>
 </body>
-
 </html>
